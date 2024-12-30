@@ -13,24 +13,16 @@ export class UserRepository {
     return await UserModel.find().exec();
   }
   async update(user: User): Promise<User | null> {
-    const updatedUser = await UserModel.updateOne(
+    await UserModel.updateOne(
       { _id: user.id },
       { $set: user },
-    );
+    ).exec();
 
-    if (updatedUser.matchedCount === 0) {
-      return null;
-    }
-
-    return await UserModel.findOne({ _id: user.id });
+    return await UserModel.findOne({ _id: user.id }).exec();
   }
 
-  async delete(id: string): Promise<DeleteResult> {
-    const result = await UserModel.deleteOne({ _id: id });
-
-    if (result.deletedCount === 0) {
-      throw new Error("User not found or already deleted");
-    }
+  async delete(user: User): Promise<DeleteResult> {
+    const result = await UserModel.deleteOne({ _id: user.id }).exec();
 
     return result;
   }
