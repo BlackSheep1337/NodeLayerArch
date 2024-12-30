@@ -1,4 +1,5 @@
 import { UserModel } from "../models/UserModel";
+import { DeleteResult } from "../types/Repository";
 import { User } from "../types/User";
 
 export class UserRepository {

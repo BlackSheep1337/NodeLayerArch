@@ -1,4 +1,5 @@
 import { UserRepository } from "../repositories/UserRepository";
+import { DeleteResult } from "../types/Repository";
 import { User } from "../types/User";
 
 export class UserService {
