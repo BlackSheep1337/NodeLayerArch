@@ -74,3 +74,7 @@ Feel free to explore and contribute to the project!
 3. Run project in dev enviroment:
    ```bash
    npm run start:dev
+4. Build and start the project:
+   ```bash
+   npm run build
+   npm start
