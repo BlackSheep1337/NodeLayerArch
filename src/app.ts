@@ -1,11 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import userRouter from './routes/UserRoutes';
+import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(errorHandler);
 
 app.use("/api/users", userRouter);
 
